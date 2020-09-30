@@ -1,7 +1,7 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import './index.css';
-import {Breadcrumb, Layout, Menu} from 'antd';
+import {Avatar, Breadcrumb, Layout, Menu} from 'antd';
 import {DesktopOutlined, PieChartOutlined, TeamOutlined, UserOutlined} from '@ant-design/icons'
 
 const {Header, Content, Footer, Sider} = Layout;
@@ -37,14 +37,22 @@ export default class BasicLayout extends React.Component {
                     </Menu>
                 </Sider>
 
-                <Layout className='site-layout'>
-                    <Header className='site-layout-background' style={{padding: 0}}/>
+                <Layout>
+                    <Header className='layout-background' style={{padding: 0}}>
+                        <Menu key="user" mode="horizontal">
+                            <SubMenu title={<Avatar src="https://usercontents.authing.cn/authing-avatar.png"/>}>
+                                <Menu.Item key="personalCenter">个人中心</Menu.Item>
+                                <Menu.Item key="logout">退出</Menu.Item>
+                            </SubMenu>
+                        </Menu>
+                    </Header>
+
                     <Content style={{margin: '0 16px'}}>
                         <Breadcrumb style={{margin: '16px 0'}}>
                             <Breadcrumb.Item>User</Breadcrumb.Item>
                             <Breadcrumb.Item>Bill</Breadcrumb.Item>
                         </Breadcrumb>
-                        <div className='site-layout-background' style={{padding: 24, minHeight: 360}}>
+                        <div className='layout-background' style={{padding: 24, minHeight: 360}}>
                             Bill is a cat.
                         </div>
                     </Content>
